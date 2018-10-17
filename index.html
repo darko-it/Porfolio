@@ -1,0 +1,243 @@
+<html>
+<head style="font-family:normal;" >
+<style>
+ .nav {
+   overflow: hidden;
+ 
+   
+  
+ }
+ .nav a {
+   float: left;
+   padding: 16px;
+   font-size: 20px;
+   color:royalblue;
+  margin-left: 20px;
+  text-decoration: none;
+ 
+  
+  
+ }
+ .dropdown {
+   overflow: hidden;
+   float: left;
+  
+ }
+.dropdown .btn {
+  border: none;
+  outline: none;
+  padding: 18px;
+  font-size: 17px;
+ background-color: unset;
+ color: royalblue;
+ 
+}
+
+.dropdown-content {
+  display: none;
+  position: absolute;
+  min-width: 160px;
+  box-shadow: 3px 3px 3px;
+  background-color: blue;
+
+}
+.dropdown-content a {
+  float: none;
+  display: block;
+  color: white;
+  text-decoration: none;
+  padding: 16px;
+  font-size: 16px;
+ 
+}
+.show {display: block;}
+.btn:hover  {
+  background-color:chartreuse;
+  color: blue;
+}
+.nav a:hover {
+  color: blue;
+  background-color: chartreuse;
+}
+.log {
+ float: right;
+ margin: 15px;
+
+}
+.btn01{
+  background-color: blue;
+  border: none;
+  padding: 5px;
+  border-radius: 10px;
+  font-size: 15px;
+}
+.slideshow-container {
+  max-width: 470px;
+  position: relative;
+  margin:auto;
+  top: -40px;
+  
+
+}
+.myslides {
+  display: none;
+  
+   
+  }
+
+.prev , .next {
+  cursor: pointer;
+  position: absolute;
+  width: auto;
+  top: 50%;
+  margin-top: -22px;
+  font-size: 16px;
+  padding: 16px;
+  color: black;
+  border-radius: 0 3px 3px 0;
+  background-color: gainsboro;
+  opacity: 0.40;
+  font-weight: bold;
+}
+.next {
+  right: 0;
+  border-radius: 3px 0 0 3px;
+}
+.prev:hover , .next:hover {
+  background-color: slategray;
+}
+.slidenav {
+  position: fixed;
+  height: 100%;
+  width: 0;
+  left:0;
+  top: 0;
+  overflow: hidden;
+  background-color: black;
+  transition: 0.3s;
+  
+  
+}
+.slidenav a {
+  display: block;
+  padding: 20px;
+  color: white;
+  text-decoration:none;
+  transition: 0.5s;
+  text-align: center;
+  
+ 
+}
+.close {
+  position: absolute;
+  right: 10px;
+  font-size: 25px;
+  top: 0;
+  font-weight: bold;
+}
+.slide:hover {
+  background-color:rgba(0, 0, 0, 0.253);
+}
+
+  
+
+   
+   
+
+ 
+</style>
+
+</head>             
+<body style="background-image:url('logo.jpg')">
+    <div id="mySlidenav" class="slidenav">
+        <a href="#" class="close" onclick="closeNav()">&times;</a>
+        <a href="#">About</a>
+        <a href="#">Clients</a>
+        <a href="#">Contact</a>
+      </div>
+      <span class="slide" onclick="openNav()" style="font-size:30px;">&#9776;</span>
+  <div class="nav">  
+    <a href="#">Home </a>
+    <a href="#">News</a>
+    <div class="log">
+        <form>
+          <input type="text" placeholder="user name" name="username">
+           <input type="text" placeholder="last name" name="last name">
+           <button class="btn01" type="submit">send</button>
+            </form>
+            </div>
+            
+  <div class="dropdown">
+    <button class="btn" onclick="myFunction()">Dropdown</button>
+    <div id="myDropdown" class="dropdown-content">
+      <a href="#">link 1</a>
+      <a href="#">link 2</a>
+      <a href="#">link 3</a>
+    </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="slideshow-container">
+    <div class="myslides">
+      <img src="img01.jpg" style="max-width:100%">
+    </div>
+    <div class="myslides">
+      <img src="img02.jpg" style="max-width:100%">
+    </div>
+    <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
+    <a class="next" onclick="plusSlides(1)">&#10095;</a>
+  </div>
+
+  
+
+   
+    
+
+ 
+  <script>
+    function myFunction(){
+      document.getElementById("myDropdown").classList.toggle("show");
+    }
+
+    window.onclick = function(event){
+      if(!event.target.matches('.btn')){
+        var i;
+        var dropdowns = document.getElementsByClassName("dropdown-content");
+        for(i=0; i < dropdowns.length; i++){
+          var openDropdown = dropdowns[i];
+          if(openDropdown.classList.contains("show")){
+            openDropdown.classList.remove("show");
+          }
+        }
+      }
+    }
+</script>
+<script>
+  var slideIndex =1;
+  showSlides(slideIndex);
+
+  function plusSlides(n){
+    showSlides(slideIndex+=n)
+  }
+  function showSlides(n){
+    var i;
+    var slides = document.getElementsByClassName("myslides");
+    if(n > slides.length){slideIndex=1}
+    if(n < 1){slideIndex = slides.length}
+    for(i=0; i < slides.length; i++){
+      slides[i].style.display = "none";
+    }
+    slides[slideIndex-1].style.display = "block"
+  }
+</script>
+<script>
+  function openNav(){
+    document.getElementById("mySlidenav").style.width = "250px";
+  }
+  function closeNav(){
+    document.getElementById("mySlidenav").style.width = "0";
+  }
+</script>
+</body>
+</html> 
